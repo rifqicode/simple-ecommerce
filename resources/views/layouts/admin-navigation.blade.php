@@ -40,6 +40,7 @@
 
             <a href="{{ route('admin.dashboard') }}" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium {{ request()->routeIs('admin.dashboard') ? 'bg-gray-500' : '' }}"> Dashboard </a>
             <a href="{{ route('users.index') }}" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium {{ request()->routeIs('users*') ? 'bg-gray-500' : '' }}"> Users </a>
+            <a href="{{ route('category.index') }}" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium {{ request()->routeIs('category*') ? 'bg-gray-500' : '' }}"> Category </a>
 
           </div>
         </div>
@@ -91,6 +92,7 @@
         <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
         <a href="{{ route('admin.dashboard') }}" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium {{ request()->routeIs('admin.dashboard') ? 'bg-gray-500' : '' }}"> Dashboard </a>
         <a href="{{ route('users.index') }}" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium {{ request()->routeIs('users.index') ? 'bg-gray-500' : '' }}"> Users </a>
+        <a href="{{ route('category.index') }}" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium {{ request()->routeIs('category*') ? 'bg-gray-500' : '' }}"> Category </a>
 
     </div>
   </div>
