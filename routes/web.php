@@ -25,6 +25,7 @@ Route::prefix('admin')->middleware('auth', 'rolecheck')->group(function () {
 
     Route::resource('users', App\Http\Controllers\UserController::class);
     Route::resource('category', App\Http\Controllers\CategoryController::class);
+    Route::resource('item', App\Http\Controllers\ItemController::class);
 });
 
 require __DIR__ . '/auth.php';
