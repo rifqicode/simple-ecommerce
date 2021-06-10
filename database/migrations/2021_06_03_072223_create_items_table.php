@@ -20,6 +20,7 @@ class CreateItemsTable extends Migration
             $table->string('description');
             $table->string('image');
             $table->bigInteger('stock');
+            $table->float('price');
             $table->integer('active');
             $table->timestamps();
         });

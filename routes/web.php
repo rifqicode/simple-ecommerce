@@ -13,12 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('dashboard');
-})->name('dashboard');
+Route::get('/', [App\Http\Controllers\MainController::class, 'index'])->name('dashboard');
+Route::get('/get-product/{category}', [App\Http\Controllers\MainController::class, 'getProduct'])->name('list-product');
 
 
-Route::prefix('admin')->middleware('auth', 'rolecheck')->group(function () {
+Route::prefix('xadmin')->middleware('auth', 'rolecheck')->group(function () {
     Route::get('/', function () {
         return view('admin.index');
     })->name('admin.dashboard');

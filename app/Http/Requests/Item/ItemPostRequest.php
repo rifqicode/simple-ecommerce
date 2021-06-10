@@ -31,7 +31,20 @@ class ItemPostRequest extends FormRequest
             'category_id' => 'required',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'stock' => 'required|numeric',
-            'active' => 'required'
+            'active' => 'required',
+            'price' => 'required|numeric'
         ];
+    }
+
+    /**
+     * Prepare the data for validation.
+     *
+     * @return void
+     */
+    protected function prepareForValidation()
+    {
+        $this->merge([
+            'price' => preg_replace('/[^0-9]/', '', $this->price),
+        ]);
     }
 }

@@ -28,6 +28,9 @@ class ItemController extends Controller
                     $url = asset("$row->image");
                     return '<img src=' . $url . ' border="0" width="40" class="img-rounded" align="center" />';
                 })
+                ->addColumn('price', function ($row) {
+                    return number_format($row->price);
+                })
                 ->addColumn('action', function ($row) {
                     $button = "
                         <div class='row p-3'>

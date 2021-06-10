@@ -30,7 +30,7 @@
 
                             <div class="col-md-12 input-form mt-1">
                                 <label for=""> Description </label>
-                                <textarea class="form-control" name="decsription" cols="30" rows="10">{{ $category->description ?? old('description') }}</textarea>
+                                <textarea class="form-control" name="description" cols="30" rows="10">{{ $category->description ?? old('description') }}</textarea>
                             </div>
 
                             <div class="col-md-6 offset-6 mt-3">

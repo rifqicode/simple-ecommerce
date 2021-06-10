@@ -21,6 +21,7 @@
                                 <th>Description</th>
                                 <th>Image</th>
                                 <th>Stock</th>
+                                <th>Price</th>
                                 <th width="200">Action</th>
                             </tr>
                         </thead>
@@ -45,6 +46,7 @@
                         {data: 'description', name: 'description'},
                         {data: 'image_show', name: 'image_show'},
                         {data: 'stock', name: 'stock'},
+                        {data: 'price', name: 'price'},
                         {data: 'action', name: 'action', orderable: false, searchable: false},
                     ]
                 });

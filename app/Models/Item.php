@@ -20,6 +20,7 @@ class Item extends Model
         'description',
         'image',
         'stock',
-        'active'
+        'active',
+        'price'
     ];
 }

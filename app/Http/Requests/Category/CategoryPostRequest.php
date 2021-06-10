@@ -27,6 +27,7 @@ class CategoryPostRequest extends FormRequest
     {
         return [
             'name' => 'required',
+            'description' => 'string'
         ];
     }
 }

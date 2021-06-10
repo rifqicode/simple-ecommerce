@@ -53,6 +53,11 @@
                                 <input type="number" class="form-control rounded-md" name="stock" value="{{ $item->stock ?? old('stock')}}">
                             </div>
 
+                            <div class="col-md-6 input-form mt-1">
+                                <label for=""> Price </label>
+                                <input type="text" class="form-control rounded-md" name="price" id="price" value="{{ $item->price ?? old('price')}}">
+                            </div>
+
                             @php
                                 $status = [
                                     '0' => 'Inactive',
@@ -80,4 +85,16 @@
             </div>
         </div>
     </div>
+
+    @push('scripts')
+        <script src="{{ asset('js/numeric.js') }}"></script>
+        <script>
+            $(document).ready(function() {
+                $(document).on('keyup', '#price', function() {
+                    var value = $(this).val();
+                    $(this).val( number_format(value, 0 , '.' , ',') );
+                });
+            });
+        </script>
+    @endpush()
 </x-app-layout>
