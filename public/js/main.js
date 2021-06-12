@@ -47,19 +47,18 @@ function addItem(data) {
 async function removeItem(idItem) {
     let cart = JSON.parse(localStorage.getItem('cart')) ?? [];
     let keyItem = 0;
-    let item = cart.filter((value, index) => {
-        if (value && value.id != undefined) {
-            keyItem = value.id == idItem ? index : 0;
-            return value.id == idItem ?? false;
+    let item = null;
+
+    let map = cart.map((value, index) => {
+        if (value && value.id == idItem) {
+            keyItem = index;
+            item = value;
         }
-
-        return false;
     });
-
 
     let removed = false;
 
-    if (item[0].amount > 1) {
+    if (item.amount > 1) {
         cart[keyItem].amount -= 1;
     } else {
         cart.splice(keyItem, 1);
@@ -110,13 +109,13 @@ async function renderItemList() {
 }
 
 function showAlert(type, message) {
-    let template = `<div class="alert alert-${type}" role="alert" style="position: absolute; right:20px; top: 100px">
+    let template = `<div class="alert alert-${type} alert-flash" role="alert" style="position: absolute; right:20px; top: 100px">
         ${message}
     </div>`;
 
     $('#alert-message').html(template);
 
-    $('.alert').fadeIn().delay(2000).fadeOut();
+    $('.alert-flash').fadeIn().delay(2000).fadeOut();
 }
 
 

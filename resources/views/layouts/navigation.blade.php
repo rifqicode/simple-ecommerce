@@ -33,6 +33,11 @@
                         </x-slot>
 
                         <x-slot name="content">
+
+                            @if (Auth::user()->role == 1)
+                                <x-dropdown-link :href="route('admin.dashboard')"> {{ __('Admin Page') }}</x-dropdown-link>
+                            @endif
+
                             <!-- Authentication -->
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
