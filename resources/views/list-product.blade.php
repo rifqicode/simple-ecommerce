@@ -1,11 +1,15 @@
-@if ($product)
-    <div class="grid grid-cols-3 gap-4">
+@if (count($product) > 0)
+    <div class="grid md:grid-cols-3 sm:grid-cols-4 gap-4">
         @foreach ($product as $product)
             <div class="shadow-md w-auto rounded-b-xl" style="position: relative;">
-                <button class="bg-indigo-200 p-3 rounded-sm float-right" style="position: absolute; right: 0"> Add </button>
-                <img src="{{ asset($product->image) }}" class="rounded-xl rounded-b-none h-50" alt="image">
+                <button class="btn btn-success btn-md add-item"
+                        data-name="{{ $product->name }}"
+                        data-id="{{ $product->id }}"
+                        data-price="{{ $product->price }}"
+                        style="position: absolute; right: 0"> Add </button>
+                <img src="{{ asset($product->image) }}" class="rounded-xl rounded-b-none" alt="image">
 
-                <div class="p-5">
+                <div class="p-3">
                     <p> {{ $product->name }} </p>
                     <p class="font-bold mt-2"> Rp. {{ number_format($product->price) ?? 0 }}</p>
                 </div>
@@ -15,9 +19,10 @@
 @else
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 bg-white border-b border-gray-200 flex justify-center">
-                    Item not found!
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg" style="min-height: 500px; position: relative;">
+                <div class="p-6 bg-white border-gray-200 flex justify-center">
+                    {{-- <img src="{{ asset('assets/icon/empty.png') }}" alt=""> --}}
+                    <h1 style="margin:auto; top: 30%; position: absolute" class="text-lg"> Item not Found!</h1>
                 </div>
             </div>
         </div>

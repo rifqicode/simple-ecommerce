@@ -19,7 +19,6 @@ class MainController extends Controller
     public function getProduct(Request $request, $category)
     {
         if ($request->ajax()) {
-            $category = $request->get('category') ?? 3;
             $product = Item::where([
                 'category_id' => $category
             ])->get();

@@ -1,0 +1,25 @@
+#main-loader.basic-loader {
+    display: none;
+    z-index: 9998;
+    background-image: url('{{ asset('img/loader.gif') }}');
+    background-color: #f8f8f8;
+    position: fixed;
+}
+
+.basic-loader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: hsla(0, 0%, 100%, 0.8);
+    background-position: center;
+    background-repeat: no-repeat;
+    /*background-size: 70px 70px;*/
+    z-index: 9998;
+}
+
+.basic-loader.fixed-container {
+    position: fixed !important;
+    z-index: 9998;
+}
