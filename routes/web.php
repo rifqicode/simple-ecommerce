@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [App\Http\Controllers\MainController::class, 'index'])->name('dashboard');
 Route::get('/get-product/{category}', [App\Http\Controllers\MainController::class, 'getProduct'])->name('list-product');
+Route::post('/order-product', [App\Http\Controllers\MainController::class, 'orderProduct'])->name('order-product');
 
 
 Route::prefix('xadmin')->middleware('auth', 'rolecheck')->group(function () {

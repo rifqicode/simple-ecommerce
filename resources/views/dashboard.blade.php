@@ -34,13 +34,31 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <ol class="list-group list-group-numbered" id="shop-list-item">
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label for=""> Name </label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+
+                        <div class="col-md-12">
+                            <label for=""> Address </label>
+                            <textarea name="address" class="form-control" id="address" id="alamat" cols="30" rows="3"></textarea>
+                        </div>
+                    </div>
+
+                    <ol class="list-group list-group-numbered mt-5" id="shop-list-item">
 
                     </ol>
+                    <div class="col-md-12">
+                        <div class="alert alert-success" role="alert" id="shop-total">
+                            Total : Rp. 500.000 | 54 Item
+                        </div>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Order!</button>
+                    <button type="button" class="btn btn-primary" onclick="order()">Order!</button>
                 </div>
                 </div>
             </div>
@@ -74,8 +92,14 @@
                         price : $(this).data('price'),
                     }
 
-                    addItemToCart(data);
+                    addItem(data);
                 });
+
+                $(document).on('click', '.remove-item', function() {
+                    let idItem = $($(this).parent()).attr('id');
+
+                    removeItem(idItem);
+                })
             });
         </script>
     @endpush
