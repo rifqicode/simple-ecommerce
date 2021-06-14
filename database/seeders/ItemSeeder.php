@@ -17,22 +17,22 @@ class ItemSeeder extends Seeder
     {
         Item::create([
             'category_id' => 1,
-            'name' => 'Baju Baru',
-            'description' => 'Baju',
+            'name' => 'Nasi Goreng',
+            'description' => 'Nasi yang tergoreng',
             'image' => 'assets/dummy/test.jpg',
-            'stock' => 50,
+            'stock' => 20,
             'active' => 1,
-            'price' => 150000
+            'price' => 25000
         ]);
 
         Item::create([
             'category_id' => 2,
-            'name' => 'Celana Baru',
-            'description' => 'Celana',
+            'name' => 'Jus Alpukat',
+            'description' => 'Alpukat yang diproses menjadi minuman',
             'image' => 'assets/dummy/test.jpg',
             'stock' => 50,
             'active' => 1,
-            'price' => 150000
+            'price' => 15000
         ]);
     }
 }

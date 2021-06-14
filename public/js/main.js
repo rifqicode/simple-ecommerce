@@ -60,6 +60,9 @@ async function removeItem(idItem) {
 
     if (item.amount > 1) {
         cart[keyItem].amount -= 1;
+        cart[keyItem].totalprice = cart[keyItem].totalprice - cart[keyItem].price;
+        
+    console.log(cart[keyItem]);
     } else {
         cart.splice(keyItem, 1);
         removed = true;
@@ -91,12 +94,13 @@ async function renderItemList() {
         result += `<li id="${id}" class="list-group-item d-flex justify-content-between align-items-start">
             <div class="ms-2 me-auto">
             <div class="fw-bold">
-                ${name} | Rp. ${number_format(price)}
+                ${name} | Rp. ${number_format(price)} <span class="badge bg-success rounded-pill ml-2">${amount}</span>
             </div>
                 Rp. ${number_format(totalprice)}
             </div>
-            <span class="badge bg-success rounded-pill">${amount}</span>
-            <span class="badge bg-danger rounded-pill ml-2 remove-item"> - </span>
+            <button class="badge bg-danger rounded-pill ml-2 remove-item"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+            <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+          </svg></button>
         </li>`
 
         totalAllPrice += value.price;
@@ -126,7 +130,7 @@ async function order() {
 
     let list = '';
 
-    let message = `Order masuk dari *TokoSimple*
+    let message = `Order masuk dari *FoodMarket*
 
 `;
     message += `Nama Pemesan : *${name}*
@@ -144,7 +148,7 @@ async function order() {
 ${list}`;
 
     message += `
-*Terima Kasih sudah berbelanja lewat aplikasi TokoSimple*`;
+*Terima Kasih sudah berbelanja lewat aplikasi FoodMarket*`;
 
     window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(message)}`, '_blank');
 }

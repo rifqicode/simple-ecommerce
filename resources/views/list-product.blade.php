@@ -7,7 +7,8 @@
                         data-id="{{ $product->id }}"
                         data-price="{{ $product->price }}"
                         style="position: absolute; right: 0"> Add </button>
-                <img src="{{ asset($product->image) }}" class="rounded-xl rounded-b-none" alt="image">
+                <img src="{{ asset($product->image) }}" class="rounded-xl rounded-b-none" alt="image" style="width: 100%;
+                height: 300px;">
 
                 <div class="p-3">
                     <p> {{ $product->name }} </p>

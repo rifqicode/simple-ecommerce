@@ -6,6 +6,6 @@
    <img src="{{ asset('assets/img/logo.png') }}" {{ $attributes }}>
 
    <div class="sm:ml-3 text-lg sm:flex sm:items-center font-thin">
-        TokoSimple
+        {{ config('app.name', 'Laravel') }}
    </div>
 </div>

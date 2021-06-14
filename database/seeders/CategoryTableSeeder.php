@@ -16,13 +16,13 @@ class CategoryTableSeeder extends Seeder
     public function run()
     {
         Category::create([
-            'name' => 'Baju',
-            'description' => 'Baju'
+            'name' => 'Makanan',
+            'description' => 'makanan'
         ]);
 
         Category::create([
-            'name' => 'Celana',
-            'description' => 'Celana'
+            'name' => 'Minuman',
+            'description' => 'minuman'
         ]);
     }
 }
